@@ -1,0 +1,84 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://font_title.tres" type="DynamicFont" id=1]
+[ext_resource path="res://HostWaitRoom.gd" type="Script" id=2]
+[ext_resource path="res://NotoSans_Bold.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://font_input.tres" type="DynamicFont" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 60
+font_data = ExtResource( 3 )
+
+[node name="HostWaitRoom" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+margin_left = 6.0
+margin_top = 13.0
+margin_right = 173.0
+margin_bottom = 59.0
+custom_fonts/font = ExtResource( 1 )
+text = "Your IP is:"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelIP" type="Label" parent="CanvasLayer"]
+margin_left = -18.0
+margin_top = 51.0
+margin_right = 280.0
+margin_bottom = 134.0
+custom_fonts/font = SubResource( 1 )
+text = "127.0.0.1"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+margin_left = 304.0
+margin_top = 19.0
+margin_right = 738.0
+margin_bottom = 65.0
+custom_fonts/font = ExtResource( 1 )
+text = "Share it with your frednes"
+align = 1
+
+[node name="Label3" type="Label" parent="CanvasLayer"]
+margin_left = -123.0
+margin_top = 132.0
+margin_right = 311.0
+margin_bottom = 178.0
+custom_fonts/font = ExtResource( 1 )
+text = "connected:"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="friends" type="Label" parent="CanvasLayer"]
+margin_left = -147.0
+margin_top = 180.0
+margin_right = 287.0
+margin_bottom = 226.0
+custom_fonts/font = ExtResource( 1 )
+text = "nobody"
+align = 1
+
+[node name="copy" type="Button" parent="CanvasLayer"]
+margin_left = 727.0
+margin_top = 7.0
+margin_right = 1022.0
+margin_bottom = 36.0
+custom_fonts/font = ExtResource( 4 )
+text = "copy ip to clipboard (honor system)"
+
+[connection signal="button_down" from="CanvasLayer/copy" to="." method="_on_copy_button_down"]

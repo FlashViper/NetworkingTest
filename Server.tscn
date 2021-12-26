@@ -1,0 +1,195 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://TitleScreenManager.gd" type="Script" id=1]
+[ext_resource path="res://font_title.tres" type="DynamicFont" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://font_input.tres" type="DynamicFont" id=4]
+
+[sub_resource type="Theme" id=1]
+
+[node name="Loby\?\?" type="Node2D"]
+script = ExtResource( 1 )
+joinIp = NodePath("CanvasLayer/MarginContainer/HBoxContainer/MarginContainer/JoinPanel/MarginContainer/VBoxContainer/IPText")
+playerNameHost = NodePath("CanvasLayer/MarginContainer/HBoxContainer/MarginContainer/HostPanel/VBoxContainer/HSplitContainer/InputName")
+playerNameJoin = NodePath("CanvasLayer/MarginContainer/HBoxContainer/MarginContainer/JoinPanel/MarginContainer/VBoxContainer/HSplitContainer/Name")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 1 )
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HSplitContainer" parent="CanvasLayer/MarginContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1004.0
+margin_bottom = 580.0
+custom_constants/separation = 10
+
+[node name="Main" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+margin_right = 193.0
+margin_bottom = 560.0
+custom_constants/separation = 25
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/HBoxContainer/Main"]
+margin_right = 193.0
+margin_bottom = 64.0
+texture = ExtResource( 3 )
+stretch_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/Main"]
+margin_top = 89.0
+margin_right = 193.0
+margin_bottom = 208.0
+custom_constants/separation = 15
+
+[node name="host" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/Main/VBoxContainer"]
+margin_right = 193.0
+margin_bottom = 52.0
+focus_neighbour_bottom = NodePath("../join")
+custom_fonts/font = ExtResource( 2 )
+text = "host garne"
+
+[node name="join" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/Main/VBoxContainer"]
+margin_top = 67.0
+margin_right = 193.0
+margin_bottom = 119.0
+focus_neighbour_top = NodePath("../host")
+custom_fonts/font = ExtResource( 2 )
+text = "join garne"
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+margin_left = 203.0
+margin_right = 984.0
+margin_bottom = 560.0
+custom_constants/margin_right = 200
+custom_constants/margin_top = 50
+custom_constants/margin_left = 200
+custom_constants/margin_bottom = 206
+
+[node name="JoinPanel" type="PopupDialog" parent="CanvasLayer/MarginContainer/HBoxContainer/MarginContainer"]
+margin_left = 200.0
+margin_top = 50.0
+margin_right = 581.0
+margin_bottom = 354.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/MarginContainer/JoinPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/MarginContainer/JoinPanel/MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 371.0
+margin_bottom = 294.0
+
+[node name="IP" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer/MarginContainer/JoinPanel/MarginContainer/VBoxContainer"]
+margin_right = 361.0
+margin_bottom = 46.0
+custom_fonts/font = ExtResource( 2 )
+text = "Join Garne"
+align = 1
+
+[node name="IPText" type="LineEdit" parent="CanvasLayer/MarginContainer/HBoxContainer/MarginContainer/JoinPanel/MarginContainer/VBoxContainer"]
+margin_top = 50.0
+margin_right = 361.0
+margin_bottom = 83.0
+custom_fonts/font = ExtResource( 4 )
+text = "127.0.0.1"
+placeholder_text = "IP Address"
+
+[node name="HSplitContainer" type="HSplitContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/MarginContainer/JoinPanel/MarginContainer/VBoxContainer"]
+margin_top = 87.0
+margin_right = 361.0
+margin_bottom = 120.0
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer/MarginContainer/JoinPanel/MarginContainer/VBoxContainer/HSplitContainer"]
+margin_top = 5.0
+margin_right = 53.0
+margin_bottom = 28.0
+custom_fonts/font = ExtResource( 4 )
+text = "Name:"
+
+[node name="Name" type="LineEdit" parent="CanvasLayer/MarginContainer/HBoxContainer/MarginContainer/JoinPanel/MarginContainer/VBoxContainer/HSplitContainer"]
+margin_left = 65.0
+margin_right = 361.0
+margin_bottom = 33.0
+custom_fonts/font = ExtResource( 4 )
+text = "Untitled Player"
+
+[node name="Join" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/MarginContainer/JoinPanel/MarginContainer/VBoxContainer"]
+margin_top = 124.0
+margin_right = 361.0
+margin_bottom = 176.0
+custom_fonts/font = ExtResource( 2 )
+text = "Join"
+
+[node name="HostPanel" type="PopupDialog" parent="CanvasLayer/MarginContainer/HBoxContainer/MarginContainer"]
+margin_left = 200.0
+margin_top = 50.0
+margin_right = 581.0
+margin_bottom = 354.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/MarginContainer/HostPanel"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 371.0
+margin_bottom = 294.0
+
+[node name="IP" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer/MarginContainer/HostPanel/VBoxContainer"]
+margin_right = 361.0
+margin_bottom = 46.0
+custom_fonts/font = ExtResource( 2 )
+text = "Host Garne"
+align = 1
+
+[node name="GameName" type="LineEdit" parent="CanvasLayer/MarginContainer/HBoxContainer/MarginContainer/HostPanel/VBoxContainer"]
+margin_top = 50.0
+margin_right = 361.0
+margin_bottom = 83.0
+custom_fonts/font = ExtResource( 4 )
+placeholder_text = "Game Name"
+
+[node name="HSplitContainer" type="HSplitContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/MarginContainer/HostPanel/VBoxContainer"]
+margin_top = 87.0
+margin_right = 361.0
+margin_bottom = 120.0
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer/MarginContainer/HostPanel/VBoxContainer/HSplitContainer"]
+margin_top = 5.0
+margin_right = 53.0
+margin_bottom = 28.0
+custom_fonts/font = ExtResource( 4 )
+text = "Name:"
+
+[node name="InputName" type="LineEdit" parent="CanvasLayer/MarginContainer/HBoxContainer/MarginContainer/HostPanel/VBoxContainer/HSplitContainer"]
+margin_left = 65.0
+margin_right = 361.0
+margin_bottom = 33.0
+custom_fonts/font = ExtResource( 4 )
+text = "Untitled Host"
+
+[node name="Host" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/MarginContainer/HostPanel/VBoxContainer"]
+margin_top = 124.0
+margin_right = 361.0
+margin_bottom = 176.0
+custom_fonts/font = ExtResource( 2 )
+text = "Host"
+
+[connection signal="pressed" from="CanvasLayer/MarginContainer/HBoxContainer/Main/VBoxContainer/host" to="." method="hostPopup"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/HBoxContainer/Main/VBoxContainer/join" to="." method="joinPopup"]
